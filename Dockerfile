@@ -6,12 +6,13 @@ WORKDIR /opt/jumpserver
 RUN set -ex \
     ## jumpserver
     && apk update \
+    && apk upgrade \
     && apk add git \
     && cd /opt \
     && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && apk add $(cat requirements/alpine_requirements.txt) \
-    && python -m pip install --upgrade pip setuptools \
+    && pip install --upgrade pip setuptools \
     && pip install -r requirements/requirements.txt \
     && useradd jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
