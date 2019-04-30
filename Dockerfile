@@ -13,7 +13,7 @@ RUN set -ex \
     && cd /opt/jumpserver/ \
     && apk add $(cat requirements/alpine_requirements.txt) \
     ## django-radius 1.3.3 has requirement future==0.16.0
-    && pip install "future==0.16.0"
+    && pip install "future==0.16.0" \
     && pip install -r requirements/requirements.txt \
     && adduser jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
