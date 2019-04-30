@@ -7,7 +7,7 @@ RUN set -ex \
     ## jumpserver
     && apk update \
     && apk upgrade \
-    && apk add gcc musl-dev git \
+    && apk add gcc musl-dev make git \
     && cd /opt \
     && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
@@ -21,7 +21,7 @@ RUN set -ex \
     ## supervisor
     && apk add supervisor \
     ## cleanup
-    && apk del git gcc \
+    && apk del musl-dev make gcc git \
     && apk cache clean \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
