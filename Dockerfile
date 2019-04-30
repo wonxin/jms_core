@@ -22,7 +22,7 @@ RUN set -ex \
     ## cleanup
     && apk del git \
     && apk cache clean \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
 
 COPY config.yml.example /opt/jumpserver/config.yml.example
