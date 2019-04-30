@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.6-alpine
 LABEL maintainer "wonxin <aeternus@aliyun.com>"
 
 WORKDIR /opt/jumpserver
@@ -6,14 +6,13 @@ WORKDIR /opt/jumpserver
 RUN set -ex \
     ## jumpserver
     && apk update \
-    && apk upgrade \
     && apk add gcc musl-dev make git \
     && cd /opt \
     && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && apk add $(cat requirements/alpine_requirements.txt) \
     && pip install -r requirements/requirements.txt \
-    && useradd jumpserver \
+    && adduser jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
     ## nginx
     && apk add nginx \
