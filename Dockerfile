@@ -15,7 +15,7 @@ RUN set -ex \
     ## django-radius 1.3.3 has requirement future==0.16.0
     && pip install "future==0.16.0" \
     && pip install -r requirements/requirements.txt \
-    && adduser jumpserver \
+    && adduser -D jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
     ## nginx
     && apk add nginx \
