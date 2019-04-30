@@ -11,7 +11,7 @@ RUN set -ex \
     && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && apk add $(cat requirements/alpine_requirements.txt) \
-    && pip install --upgrade setuptools \
+    && pip install --upgrade pip setuptools \
     && pip install -r requirements/requirements.txt \
     && useradd jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
