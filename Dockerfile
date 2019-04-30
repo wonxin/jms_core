@@ -7,12 +7,11 @@ RUN set -ex \
     ## jumpserver
     && apk update \
     && apk upgrade \
-    && apk add git \
+    && apk add gcc git \
     && cd /opt \
     && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && apk add $(cat requirements/alpine_requirements.txt) \
-    && pip install --upgrade pip setuptools \
     && pip install -r requirements/requirements.txt \
     && useradd jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
@@ -22,7 +21,7 @@ RUN set -ex \
     ## supervisor
     && apk add supervisor \
     ## cleanup
-    && apk del git \
+    && apk del git gcc \
     && apk cache clean \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
