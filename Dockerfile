@@ -7,7 +7,7 @@ RUN set -ex \
     ## jumpserver
     && apk update \
     && apk upgrade \
-    && apk add gcc git \
+    && apk add gcc musl-dev git \
     && cd /opt \
     && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
