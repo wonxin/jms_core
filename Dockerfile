@@ -54,6 +54,6 @@ ENV SECRET_KEY=1234567890qwertyuiop \
 VOLUME /opt/jumpserver/data
 VOLUME /opt/jumpserver/logs
 
-EXPOSE 80
+EXPOSE 80 8080
 
 ENTRYPOINT ["/usr/bin/supervisord"]
