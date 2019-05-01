@@ -4,12 +4,13 @@ LABEL maintainer "wonxin <aeternus@aliyun.com>"
 WORKDIR /opt/jumpserver
 
 RUN set -ex \
-    ## jumpserver
     && apk update \
     && apk upgrade \
+    \
+    ## jumpserver
     && apk add gcc musl-dev make git \
     && cd /opt \
-    && git clone --depth=1 https://github.com/jumpserver/jumpserver.git \
+    && git clone --branch v1.4.10 --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && apk add $(cat requirements/alpine_requirements.txt) \
     ## django-radius 1.3.3 has requirement future==0.16.0
@@ -17,11 +18,14 @@ RUN set -ex \
     && pip install -r requirements/requirements.txt \
     && adduser -D jumpserver \
     && chown jumpserver:jumpserver -R /opt/jumpserver \
+    \
     ## nginx
     && apk add nginx \
     && mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak \
+    \
     ## supervisor
     && apk add supervisor \
+    \
     ## cleanup
     && apk del gcc musl-dev make git \
     && rm -rf /var/cache/apk/* \
