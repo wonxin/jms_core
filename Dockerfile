@@ -24,7 +24,6 @@ RUN set -ex \
     && apk add supervisor \
     ## cleanup
     && apk del gcc musl-dev make git \
-    && apk cache clean \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
 
