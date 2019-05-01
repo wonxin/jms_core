@@ -25,6 +25,7 @@ RUN set -ex \
     \
     ## supervisor
     && apk add supervisor \
+    && mkdir /opt/supervisord \
     \
     ## cleanup
     && apk del gcc musl-dev make git \
@@ -33,7 +34,7 @@ RUN set -ex \
 
 COPY config.yml.example /opt/jumpserver/config.yml.example
 COPY jumpserver.conf /etc/nginx/conf.d/jumpserver.conf
-COPY supervisor.ini /etc/supervisor.d/supervisor.ini
+COPY supervisord.conf /opt/supervisord/supervisord.conf
 
 COPY jumpserver.sh /opt/jumpserver/jumpserver.sh
 RUN chmod +x /opt/jumpserver/jumpserver.sh
@@ -60,4 +61,4 @@ VOLUME /opt/jumpserver/logs
 
 EXPOSE 80 8080
 
-ENTRYPOINT ["/usr/bin/supervisord"]
+ENTRYPOINT ["/usr/bin/supervisord", "-c", "/opt/supervisord/supervisord.conf"]
