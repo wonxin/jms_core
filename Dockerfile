@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.6-alpine
 LABEL maintainer "wonxin <aeternus@aliyun.com>"
 LABEL version v1.4.10
 
