@@ -21,6 +21,7 @@ RUN set -ex \
     ## nginx
     && apk add nginx \
     && mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak \
+    && mkdir /run/nginx \
     \
     ## supervisor
     && apk add supervisor \

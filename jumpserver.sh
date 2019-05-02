@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ ! -f "/etc/jumpserver/config.yml" ]; then
-    cp /etc/jumpserver/config.yml.example /etc/jumpserver/config.yml
+if [ ! -f "/opt/jumpserver/config.yml" ]; then
+    cp /opt/jumpserver/config.yml.example /opt/jumpserver/config.yml
 
     sed -i -e "s/SECRET_KEY:/SECRET_KEY: ${SECRET_KEY}/" \
            -e "s/BOOTSTRAP_TOKEN:/BOOTSTRAP_TOKEN: ${BOOTSTRAP_TOKEN}/" \
@@ -15,7 +15,7 @@ if [ ! -f "/etc/jumpserver/config.yml" ]; then
            -e "s/REDIS_PORT:/REDIS_PORT: ${REDIS_PORT}/" \
            -e "s/REDIS_PASSWORD:/REDIS_PASSWORD: ${REDIS_PASSWORD}/" \
            -e "s/REDIS_DB_CELERY:/REDIS_DB_CELERY: ${REDIS_DB_CELERY}/" \
-           -e "s/REDIS_DB_CACHE:/REDIS_DB_CACHE: ${REDIS_DB_CACHE}/" /etc/jumpserver/config.yml
+           -e "s/REDIS_DB_CACHE:/REDIS_DB_CACHE: ${REDIS_DB_CACHE}/" /opt/jumpserver/config.yml
 fi
 
 source /opt/jumpserver/entrypoint.sh
