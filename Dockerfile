@@ -1,5 +1,6 @@
 FROM python:3.5-alpine
 LABEL maintainer "wonxin <aeternus@aliyun.com>"
+LABEL version v1.4.10
 
 WORKDIR /opt/jumpserver
 
@@ -20,7 +21,7 @@ RUN set -ex \
     \
     ## nginx
     && apk add nginx \
-    && mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.bak \
+    && rm /etc/nginx/conf.d/default.conf \
     && mkdir /run/nginx \
     \
     ## supervisor
