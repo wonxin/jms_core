@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.5-alpine
 LABEL maintainer "wonxin <aeternus@aliyun.com>"
 
 WORKDIR /opt/jumpserver
