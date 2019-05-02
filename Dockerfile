@@ -35,8 +35,8 @@ COPY config.yml.example /opt/jumpserver/config.yml.example
 COPY jumpserver.conf /etc/nginx/conf.d/jumpserver.conf
 COPY supervisord.ini /etc/supervisor.d/supervisord.ini
 
-COPY jumpserver.sh /opt/jumpserver/jumpserver.sh
-RUN chmod +x /opt/jumpserver/jumpserver.sh
+COPY entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
 
 ENV LANG=zh_CN.UTF-8 \
     LC_ALL=zh_CN.UTF-8
@@ -60,4 +60,4 @@ VOLUME /opt/jumpserver/logs
 
 EXPOSE 80 8080
 
-ENTRYPOINT ["/usr/bin/supervisord"]
+ENTRYPOINT ["/opt/entrypoint.sh"]

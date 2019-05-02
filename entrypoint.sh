@@ -18,4 +18,5 @@ if [ ! -f "/opt/jumpserver/config.yml" ]; then
            -e "s/REDIS_DB_CACHE:/REDIS_DB_CACHE: ${REDIS_DB_CACHE}/" /opt/jumpserver/config.yml
 fi
 
-/opt/jumpserver/entrypoint.sh
+/usr/bin/supervisord
+
