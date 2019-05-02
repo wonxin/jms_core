@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ ! -f "/opt/jumpserver/config.yml" ]; then
     cp /opt/jumpserver/config.yml.example /opt/jumpserver/config.yml
@@ -18,4 +18,4 @@ if [ ! -f "/opt/jumpserver/config.yml" ]; then
            -e "s/REDIS_DB_CACHE:/REDIS_DB_CACHE: ${REDIS_DB_CACHE}/" /opt/jumpserver/config.yml
 fi
 
-source /opt/jumpserver/entrypoint.sh
+/opt/jumpserver/entrypoint.sh
