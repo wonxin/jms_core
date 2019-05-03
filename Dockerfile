@@ -1,6 +1,7 @@
 FROM python:3.5-alpine
-LABEL maintainer "wonxin <aeternus@aliyun.com>"
-LABEL version v1.4.10
+LABEL maintainer="wonxin <aeternus@aliyun.com>"
+LABEL version.jumpserver=v1.4.10
+LABEL version.python=3.5
 
 WORKDIR /opt/jumpserver
 
