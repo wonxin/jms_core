@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -f "/opt/jumpserver/config.yml" ]; then
     cp /opt/jumpserver/config.yml.example /opt/jumpserver/config.yml

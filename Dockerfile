@@ -1,4 +1,4 @@
-FROM python:3.6-alpine
+FROM python:3.5-alpine
 LABEL maintainer "wonxin <aeternus@aliyun.com>"
 LABEL version v1.4.10
 
@@ -9,7 +9,7 @@ RUN set -ex \
     && apk upgrade \
     \
     ## jumpserver
-    && apk add gcc musl-dev make git bash \
+    && apk add gcc musl-dev make git \
     && cd /opt \
     && git clone --branch v1.4.10 --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
@@ -32,9 +32,9 @@ RUN set -ex \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/*
 
-COPY config.yml.example /opt/jumpserver/config.yml.example
-COPY jumpserver.conf /etc/nginx/conf.d/jumpserver.conf
-COPY supervisord.ini /etc/supervisor.d/supervisord.ini
+COPY jumpserver/config.yml.example /opt/jumpserver/config.yml.example
+COPY nginx/jumpserver.conf /etc/nginx/conf.d/jumpserver.conf
+COPY supervisord/supervisord.ini /etc/supervisor.d/supervisord.ini
 
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
