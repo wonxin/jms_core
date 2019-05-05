@@ -1,5 +1,5 @@
 ## jms_core
-jumpserver core component
+jumpserver core component, without database, redis.
 
 ### Environments
 ####  SECRET_KEY
@@ -35,3 +35,14 @@ Use Redis as broker for celery and web socket.
 * REDIS_PASSWORD
 * REDIS_DB_CELERY
 * REDIS_DB_CACHE
+
+### Volume
+Record medias directory.
+```
+/opt/jumpserver/data
+```
+
+log files directory.
+```
+/opt/jumpserver/logs
+```
