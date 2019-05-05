@@ -22,7 +22,7 @@ RUN set -ex \
     \
     ## nginx
     && apk add nginx \
-    && rm /etc/nginx/conf.d/default.conf \
+    && rm -f /etc/nginx/conf.d/default.conf \
     && mkdir /run/nginx \
     \
     ## supervisor
