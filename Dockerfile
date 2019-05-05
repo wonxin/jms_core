@@ -35,7 +35,7 @@ RUN set -ex \
 
 COPY jumpserver/config.yml.example /opt/jumpserver/config.yml.example
 COPY nginx/jumpserver.conf /etc/nginx/conf.d/jumpserver.conf
-COPY supervisord/supervisord.ini /etc/supervisor.d/supervisord.ini
+COPY supervisord/supervisord.conf /opt/supervisord/supervisord.conf
 
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
