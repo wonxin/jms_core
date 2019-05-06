@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ ! -f "/opt/jumpserver/config.yml" ]; then
-    cp /opt/jumpserver/config.yml.example /opt/jumpserver/config.yml
+    mv /opt/jumpserver/config.yml.example /opt/jumpserver/config.yml
 
     sed -i -e "s/SECRET_KEY:/SECRET_KEY: ${SECRET_KEY}/" \
            -e "s/BOOTSTRAP_TOKEN:/BOOTSTRAP_TOKEN: ${BOOTSTRAP_TOKEN}/" \
