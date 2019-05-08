@@ -72,6 +72,8 @@ Here is an example:
 docker run --name jms_core -d \
     -p 80:80 \
     -p 8080:8080 \
+    -v jms_core_data:/opt/jumpserver/data \
+    -v jms_core_log:/opt/jumpserver/logs \
     -e SECRET_KEY=<secret_key> \
     -e BOOTSTRAP_TOKEN=<token> \
     -e DB_ENGINE=<db_engine> \
