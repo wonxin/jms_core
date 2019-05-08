@@ -1,7 +1,19 @@
 ## jms_core
 jumpserver core component, without database, redis.
 
-### Environments
+## Features
+Work with other jumpserver components:
+* [jms_nginx](https://cloud.docker.com/repository/docker/wonxin/jms_nginx)
+* jms_coco
+* jms_guacamole
+* mysql
+* redis
+
+## How to use this image
+
+### Set environments
+To run this docker, you must set these environments below first:
+
 ####  SECRET_KEY
 keep the secret key used in production secret.
 
@@ -46,3 +58,38 @@ log files directory.
 ```
 /opt/jumpserver/logs
 ```
+
+### Exposing external port
+#### 80
+Server record medias, static contents.
+
+#### 8080
+Jumpserver core port, contact with jms_coco, jms_guacamole.
+
+## Run
+Here is an example:
+```
+docker run --name jms_core -d \
+    -p 80:80 \
+    -p 8080:8080 \
+    -e SECRET_KEY=<secret_key> \
+    -e BOOTSTRAP_TOKEN=<token> \
+    -e DB_ENGINE=<db_engine> \
+    -e DB_HOST=<db_host> \
+    -e DB_PORT=<db_port> \
+    -e DB_NAME=<db_name> \
+    -e DB_USER=<db_user> \
+    -e DB_PASSWORD=<db_password> \
+    -e REDIS_HOST=<redis_host> \
+    -e REDIS_PORT=<redis_port> \
+    -e REDIS_PASSWORD=<redis_password> \
+    -e REDIS_DB_CELERY=<celery_db_no> \
+    -e REDIS_DB_CACHE=<cache_db_no> \
+    wonxin/jms_core:<tag>
+```
+
+## Support
+If you are having issues, please let me know. <aeternus@aliyun.com>
+
+## License
+The project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
