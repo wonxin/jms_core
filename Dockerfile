@@ -6,6 +6,10 @@ LABEL version.python=3.5
 WORKDIR /opt/jumpserver
 
 RUN set -ex \
+    \
+    # time
+    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    \
     && apk upgrade --no-cache \
     \
     ## jumpserver
