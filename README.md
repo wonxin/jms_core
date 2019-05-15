@@ -1,5 +1,5 @@
 ## jms_core
-jumpserver core component, without database, redis.
+Jumpserver core component, without database, redis.
 
 ## Features
 Work with other jumpserver components:
@@ -60,11 +60,8 @@ log files directory.
 ```
 
 ### Exposing external port
-#### 80
-Server record medias, static contents.
-
-#### 8080
-Jumpserver core port, contact with jms_coco, jms_guacamole.
+* **80** - Server record medias, static contents.
+* **8080** - Jumpserver core port, contact with jms_coco, jms_guacamole.
 
 ## Run
 Here is an example:
