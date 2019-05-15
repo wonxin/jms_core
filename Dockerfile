@@ -9,7 +9,7 @@ RUN set -ex \
     \
     # localtime
     && apk add --no-cache --virtual .tzdata-deps tzdata \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk del .tzdata-deps \
     \
     && apk upgrade --no-cache \
