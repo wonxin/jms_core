@@ -7,8 +7,10 @@ WORKDIR /opt/jumpserver
 
 RUN set -ex \
     \
-    # time
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    # localtime
+    && apk add --no-cache --virtual .tzdata-deps tzdata \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && apk del .tzdata-deps \
     \
     && apk upgrade --no-cache \
     \
