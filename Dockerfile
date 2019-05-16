@@ -22,8 +22,8 @@ RUN set -ex \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
     ## django-radius 1.3.3 has requirement future==0.16.0
-    && pip install --no-cache-dir "future==0.16.0" \
-    && pip install --no-cache-dir -r requirements/requirements.txt \
+    && pip3 install --no-cache-dir "future==0.16.0" \
+    && pip3 install --no-cache-dir -r requirements/requirements.txt \
     && adduser -D jumpserver \
     \
     ## nginx
