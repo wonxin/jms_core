@@ -10,7 +10,7 @@ RUN set -ex \
     # localtime
     && apk add --no-cache --virtual .tzdata-deps tzdata \
     && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && apk del .tzdata-deps \
+    && apk del --no-cache .tzdata-deps \
     \
     && apk upgrade --no-cache \
     \
@@ -35,7 +35,7 @@ RUN set -ex \
     && apk add --no-cache supervisor \
     \
     ## cleanup
-    && apk del .build-dependencies \
+    && apk del --no-cache .build-dependencies \
     && rm -rf /tmp/*
 
 COPY jumpserver/config.yml.example /opt/jumpserver/config.yml.example
