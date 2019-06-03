@@ -12,8 +12,6 @@ RUN set -ex \
     && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && apk del --no-cache .tzdata-deps \
     \
-    && apk upgrade --no-cache \
-    \
     ## jumpserver
     && apk add --no-cache --virtual .build-dependencies gcc musl-dev make git \
     && cd /opt \
@@ -21,10 +19,7 @@ RUN set -ex \
     && cd /opt/jumpserver/ \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
-    ## django-radius 1.3.3 has requirement future==0.16.0
-    #&& pip3 install --no-cache-dir "future==0.16.0" \
     && pip3 install --no-cache-dir -r requirements/requirements.txt \
-    #&& adduser -D jumpserver \
     \
     ## nginx
     && apk add --no-cache nginx \
