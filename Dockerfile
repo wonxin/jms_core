@@ -17,7 +17,7 @@ RUN set -ex \
     ## jumpserver
     && apk add --no-cache --virtual .build-dependencies gcc musl-dev make git \
     && cd /opt \
-    && git clone --branch v1.5.0 --depth=1 https://github.com/jumpserver/jumpserver.git \
+    && git clone --branch 1.5.0 --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
