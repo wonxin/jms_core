@@ -92,3 +92,10 @@ If you are having issues, please let me know. <aeternus@aliyun.com>
 
 ## License
 The project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) license.
+
+## Issue
+
+urllib3 version incompatible in requirements/requirements.txt
+
+* elasticsearch 6.1.1 has requirement urllib3<1.23,>=1.21.1
+* jms-storage 0.0.23 has requirement urllib3==1.25.2
