@@ -19,6 +19,10 @@ RUN set -ex \
     && cd /opt/jumpserver/ \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
+    # elasticsearch 6.1.1 has requirement urllib3<1.23,>=1.21.1
+    && pip3 install --no-cache-dir "urllib3==1.22" \
+    # django-radius 1.3.3 has requirement future==0.16.0
+    && pip3 install --no-cache-dir "future==0.16.0" \
     && pip3 install --no-cache-dir -r requirements/requirements.txt \
     \
     ## nginx
