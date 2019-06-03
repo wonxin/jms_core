@@ -21,7 +21,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE: true
 
 # SQLite setting:
 # DB_ENGINE: sqlite3
-# DB_NAME: 
+# DB_NAME:
 
 # MySQL or postgres setting like:
 DB_ENGINE:
@@ -50,13 +50,6 @@ REDIS_DB_CACHE:
 # AUTH_OPENID_REALM_NAME: realm-name
 # AUTH_OPENID_CLIENT_ID: client-id
 # AUTH_OPENID_CLIENT_SECRET: client-secret
-#
-# Use Radius authorization
-# AUTH_RADIUS: false
-# RADIUS_SERVER: localhost
-# RADIUS_PORT: 1812
-# RADIUS_SECRET: 
-
 
 # OTP settings
 # OTP_VALID_WINDOW: 0

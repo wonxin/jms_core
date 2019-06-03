@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 LABEL maintainer="wonxin <aeternus@aliyun.com>"
-LABEL version.jumpserver=v1.4.10
+LABEL version.jumpserver=v1.5.0
 LABEL version.python=3.6
 
 WORKDIR /opt/jumpserver
@@ -17,14 +17,14 @@ RUN set -ex \
     ## jumpserver
     && apk add --no-cache --virtual .build-dependencies gcc musl-dev make git \
     && cd /opt \
-    && git clone --branch v1.4.10 --depth=1 https://github.com/jumpserver/jumpserver.git \
+    && git clone --branch v1.5.0 --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
     ## django-radius 1.3.3 has requirement future==0.16.0
-    && pip3 install --no-cache-dir "future==0.16.0" \
+    #&& pip3 install --no-cache-dir "future==0.16.0" \
     && pip3 install --no-cache-dir -r requirements/requirements.txt \
-    && adduser -D jumpserver \
+    #&& adduser -D jumpserver \
     \
     ## nginx
     && apk add --no-cache nginx \
