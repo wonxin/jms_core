@@ -19,10 +19,9 @@ RUN set -ex \
     && cd /opt/jumpserver/ \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
+    # jms-storage 0.0.23 has requirement elasticsearch==6.1.1, urllib3==1.25.2
     # elasticsearch 6.1.1 has requirement urllib3<1.23,>=1.21.1
-    # && pip3 install --no-cache-dir "urllib3==1.22" \
-    #&& sed -i '/urllib3/ d' requirements/requirements.txt \
-    && sed -i 's/elasticsearch==6.1.1/elasticsearch==7.0.2/' requirements/requirements.txt \
+    # ?
     # django-radius 1.3.3 has requirement future==0.16.0
     && pip3 install --no-cache-dir "future==0.16.0" \
     && pip3 install --no-cache-dir -r requirements/requirements.txt \
@@ -46,10 +45,7 @@ COPY supervisord/supervisord.conf /opt/supervisord/supervisord.conf
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 
-ENV LANG=zh_CN.UTF-8 \
-    LC_ALL=zh_CN.UTF-8 \
-    \
-    SECRET_KEY=1234567890qwertyuiop \
+ENV SECRET_KEY=1234567890qwertyuiop \
     BOOTSTRAP_TOKEN=1234567890asdfghjkl \
     \
     DB_ENGINE=mysql \
