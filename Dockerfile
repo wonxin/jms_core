@@ -20,8 +20,9 @@ RUN set -ex \
     && rm -rf .git* \
     && apk add --no-cache $(cat requirements/alpine_requirements.txt) \
     # elasticsearch 6.1.1 has requirement urllib3<1.23,>=1.21.1
-    && pip3 install --no-cache-dir "urllib3==1.22" \
-    && sed -i '/urllib3/ d' requirements/requirements.txt \
+    # && pip3 install --no-cache-dir "urllib3==1.22" \
+    #&& sed -i '/urllib3/ d' requirements/requirements.txt \
+    && sed -i 's/elasticsearch==6.1.1/elasticsearch==7.0.2/' requirements/requirements.txt \
     # django-radius 1.3.3 has requirement future==0.16.0
     && pip3 install --no-cache-dir "future==0.16.0" \
     && pip3 install --no-cache-dir -r requirements/requirements.txt \
