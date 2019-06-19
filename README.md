@@ -97,5 +97,5 @@ The project is licensed under the [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0
 
 urllib3 version incompatible in requirements/requirements.txt
 
+* jms-storage 0.0.23 has requirement elasticsearch==6.1.1 and urllib3==1.25.2
 * elasticsearch 6.1.1 has requirement urllib3<1.23,>=1.21.1
-* jms-storage 0.0.23 has requirement urllib3==1.25.2
