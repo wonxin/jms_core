@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 LABEL maintainer="wonxin <aeternus@aliyun.com>"
-LABEL version.jumpserver=v1.5.0
+LABEL version.jumpserver=1.5.0
 LABEL version.python=3.6
 
 WORKDIR /opt/jumpserver
@@ -13,7 +13,7 @@ RUN set -ex \
     && apk del --no-cache .tzdata-deps \
     \
     ## jumpserver
-    && apk add --no-cache --virtual .build-dependencies gcc musl-dev make git \
+    && apk add --no-cache --virtual .build-deps gcc musl-dev make git \
     && cd /opt \
     && git clone --branch 1.5.0 --depth=1 https://github.com/jumpserver/jumpserver.git \
     && cd /opt/jumpserver/ \
@@ -35,7 +35,7 @@ RUN set -ex \
     && apk add --no-cache supervisor \
     \
     ## cleanup
-    && apk del --no-cache .build-dependencies \
+    && apk del --no-cache .build-deps \
     && rm -rf /tmp/*
 
 COPY jumpserver/config.yml.example /opt/jumpserver/config.yml.example
