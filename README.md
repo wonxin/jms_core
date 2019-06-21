@@ -4,7 +4,7 @@ Jumpserver core component, without database, redis.
 ## Features
 Work with other jumpserver components:
 * [jms_nginx](https://cloud.docker.com/repository/docker/wonxin/jms_nginx)
-* jms_coco
+* jms_koko
 * jms_guacamole
 * mysql
 * redis
@@ -23,7 +23,7 @@ cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 50
 ```
 
 #### BOOTSTRAP_TOKEN
-Pre share token, used by coco and guacamole to register.
+Pre share token, used by koko and guacamole to register.
 
 Generate random `BOOTSTRAP_TOKEN`:
 ```
@@ -61,7 +61,7 @@ log files directory.
 
 ### Exposing external port
 * **80** - Server record medias, static contents.
-* **8080** - Jumpserver core port, contact with jms_coco, jms_guacamole.
+* **8080** - Jumpserver core port, contact with jms_koko, jms_guacamole.
 
 ## Run
 Here is an example:
