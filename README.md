@@ -3,7 +3,7 @@ Jumpserver core component, without database, redis.
 
 ## Features
 Work with other jumpserver components:
-* [jms_nginx](https://cloud.docker.com/repository/docker/wonxin/jms_nginx)
+* jms_nginx
 * jms_koko
 * jms_guacamole
 * mysql
@@ -84,7 +84,7 @@ docker run --name jms_core -d \
     -e REDIS_PASSWORD=<redis_password> \
     -e REDIS_DB_CELERY=<celery_db_no> \
     -e REDIS_DB_CACHE=<cache_db_no> \
-    wonxin/jms_core:<tag>
+    aeternuss/jms_core:<tag>
 ```
 
 ## Support

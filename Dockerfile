@@ -1,16 +1,11 @@
 FROM python:3.6-alpine
-LABEL maintainer="wonxin <aeternus@aliyun.com>"
+LABEL maintainer="aeternus <aeternus@aliyun.com>"
 LABEL version.jumpserver=1.5.0
 LABEL version.python=3.6
 
 WORKDIR /opt/jumpserver
 
 RUN set -ex \
-    \
-    # localtime
-    && apk add --no-cache --virtual .tzdata-deps tzdata \
-    && cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && apk del --no-cache .tzdata-deps \
     \
     ## jumpserver
     && apk add --no-cache --virtual .build-deps gcc musl-dev make git \
