@@ -18,7 +18,7 @@ RUN set -ex \
     # elasticsearch 6.1.1 has requirement urllib3<1.23,>=1.21.1
     # ?
     # django-radius 1.3.3 has requirement future==0.16.0
-    && pip3 install --no-cache-dir --upgrade pip3 setuptools \
+    && pip3 install --no-cache-dir --upgrade pip setuptools \
     && pip3 install --no-cache-dir "future==0.16.0" \
     && pip3 install --no-cache-dir -r requirements/requirements.txt \
     \
